@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: Ruff lint
+        entry: uv run --project riskplat ruff check riskplat
+        language: system
+        pass_filenames: false
+
+      - id: ruff-format
+        name: Ruff format check
+        entry: uv run --project riskplat ruff format --check riskplat
+        language: system
+        pass_filenames: false
+
+      - id: mypy
+        name: Mypy
+        entry: uv run --project riskplat mypy riskplat/src
+        language: system
+        pass_filenames: false
+
+      - id: pytest
+        name: Pytest
+        entry: uv run --project riskplat pytest riskplat/tests
+        language: system
+        pass_filenames: false
