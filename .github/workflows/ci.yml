@@ -4,11 +4,16 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   quality:
     name: Code Quality and Tests
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: riskplat
 
     steps:
       - name: Checkout repository
